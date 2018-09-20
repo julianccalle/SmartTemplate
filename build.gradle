@@ -1,15 +1,5 @@
-
-    
-buildscript {
-  repositories {
-    mavenLocal()
-    mavenCentral()
-    jcenter()
-  }
-}
-
 plugins {
-  id "com.jfrog.bintray" version "1.7.3"
+  id "com.jfrog.bintray" version "1.8.4"
   id "maven-publish"
   id "java"
 }
@@ -55,8 +45,8 @@ def pomConfig = {
     }
     developers {
         developer {
-            id "thombergs"
-            name "Tom Hombergs"
+            id "julianccalle"
+            name "Julian Cardona"
             email "julianccalle@gmail.com"
         }
     }
@@ -76,14 +66,14 @@ publishing {
             artifact javadocJar {
                 classifier "javadoc"
             }
-            groupId 'io.reflectoring'
-            artifactId 'myAwesomeLib'
+            groupId 'co.com.smartcode.common'
+            artifactId 'SmartTemplate'
             version '1.0.0'
             pom.withXml {
                 def root = asNode()
-                root.appendNode('description', 'An AWESOME lib. Really!')
-                root.appendNode('name', 'My Awesome Lib')
-                root.appendNode('url', 'https://github.com/thombergs/myAwesomeLib')
+                root.appendNode('description', 'Library for easy integration with freemarker')
+                root.appendNode('name', 'SmartTemplate')
+                root.appendNode('url', 'https://github.com/julianccalle/SmartTemplate.git')
                 root.children().last() + pomConfig
             }
         }
@@ -92,11 +82,11 @@ publishing {
 
 // Bintray
 bintray {
-    user = System.getenv('BINTRAY_USER')
-    key = System.getenv('BINTRAY_KEY')
+    user = System.getProperty('BINTRAY_USER')
+    key = System.getProperty('BINTRAY_KEY')
 	publications = ['mavenPublication']
     pkg {
-        repo = 'maven'
+        repo = 'SmartTemplate'
         name = 'SmartTemplate'
         desc = 'Library for easy integration with freemarker'
         websiteUrl = 'http://smartcode.com.co'
