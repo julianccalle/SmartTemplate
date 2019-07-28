@@ -47,7 +47,7 @@ public abstract class AbstractTemplateManager implements TemplateManager {
 	 */
 	protected void init(boolean useClassPathLoader) {
 		try {
-			configuration = new Configuration(Configuration.VERSION_2_3_23);
+			configuration = new Configuration(Configuration.VERSION_2_3_28);
 			if (useClassPathLoader) {
 				TemplateLoader templateLoader = new ClassTemplateLoader(getClass(), getTemplateFolder());
 				configuration.setTemplateLoader(templateLoader);

@@ -11,10 +11,10 @@ repositories {
 }
 
 group = 'co.com.smartcode.common'
-version = '1.0.0'
+version = '1.1.0'
 
 dependencies {
-    compile("org.freemarker:freemarker:2.3.23")
+    compile("org.freemarker:freemarker:2.3.28")
     compile("com.google.guava:guava:22.0")
 }
 
@@ -68,7 +68,7 @@ publishing {
             }
             groupId 'co.com.smartcode.common'
             artifactId 'SmartTemplate'
-            version '1.0.0'
+            version '1.1.0'
             pom.withXml {
                 def root = asNode()
                 root.appendNode('description', 'Library for easy integration with freemarker')
